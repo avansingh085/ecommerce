@@ -34,20 +34,19 @@ function Card(props){
         className="p-5 m-5 border border-gray-200 rounded-lg shadow-lg bg-gradient-to-r from-white to-[#F0F4F8] hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
         onClick={ExplorHandler}
       >
-        {/* Image Container */}
-        <div className="relative h-40 w-full bg-gray-100 overflow-hidden rounded-md shadow-md">
+      
+        <div className="relative grid h-40 w-full bg-white overflow-hidden rounded-md shadow-md">
           <img
             src={props.data.image}
-            className="object-cover h-full w-full transition-transform transform hover:scale-105"
+            className="h-40 w-11/12 justify-self-center self-center transition-transform transform hover:scale-105"
             alt={props.data.title}
           />
         </div>
       
-        {/* Information Section */}
+     
         <div className="bg-blue-100 mt-4 p-4 rounded-lg shadow-inner relative z-10">
           <div className="text-xl font-semibold text-gray-800 mb-3">{props.data.title}</div>
       
-          {/* Ratings Section */}
           <div className="flex items-center space-x-1 mb-2">
             {<Rating flag={props.data.rating.rate > 0} />}
             {<Rating flag={props.data.rating.rate > 1} />}
