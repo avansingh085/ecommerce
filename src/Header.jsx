@@ -5,11 +5,38 @@ import { Link} from 'react-router-dom'
 import { IoCartOutline } from "react-icons/io5";
 import { UpdateFilData,setLogin ,setSearch} from './globalSlice.jsx';
 import RecomendationCom from "./RecomendationCom.jsx";
+import axios from 'axios'
 
 function Header(){
   
   const [Rec,setRec]=useState([]);
   const dispatch = useDispatch();
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get('https://fakeapidata.com/products?page=1&limit=400');
+        dispatch(UpdateFilData(data));
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      }
+    };
+
+    const checkLogin = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const url = `https://ecommerce-backend1-1.onrender.com/verifyToken?token=${token}`;
+        const { data } = await axios.get(url);
+        dispatch(setLogin(data.success));
+      } catch (err) {
+        console.error('Error checking login:', err);
+      }
+    };
+
+    fetchData();
+    checkLogin();
+  }, [dispatch]);
   let {searchVal}=useSelector((state)=>state.searchVal);
  
   let {filData}=useSelector((state)=>state.filData);
