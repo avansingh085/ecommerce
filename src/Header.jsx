@@ -2,11 +2,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from 'react';
 import { Link} from 'react-router-dom'
-import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { UpdateFilData,setLogin ,setSearch} from './globalSlice.jsx';
 import RecomendationCom from "./RecomendationCom.jsx";
-import { CircleGeometry } from "three";
 
 function Header(){
   
