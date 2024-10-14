@@ -25,7 +25,7 @@ function Cart(props){
       };
       
     return(<>{count ? (
-        <div className="w-full max-w-4xl mx-auto bg-black shadow-lg my-6 flex items-center justify-between p-5 rounded-xl border border-blue-200 transition duration-300 hover:shadow-2xl transform hover:-translate-y-1">
+        <div className="w-full max-h-60 max-w-4xl mx-auto bg-white shadow-2xl my-6 flex items-center justify-between p-5 rounded-xl border border-blue-200 transition duration-300  transform ">
         <div className="flex items-center space-x-4">
             <img 
                 src={props.data.image} 
@@ -33,19 +33,19 @@ function Cart(props){
                 alt={props.data.title} 
             />
             <div>
-                <div className="text-xl font-bold text-blue-900">{props.data.title}</div>
+                <div className="text-sm md:text-base lg:text-xl font-bold text-blue-900">{props.data.title}</div>
                 <div className="text-sm text-gray-500">Category: {props.data.category || 'Unknown'}</div>
                 <div className="text-sm text-gray-500">Availability: {props.data.stock ? `${props.data.stock} items` : 'Out of stock'}</div>
                 <div className="text-lg font-semibold text-green-700">{props.data.price} Rs per unit</div>
             </div>
         </div>
     
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4 ">
             <input 
                 type="number" 
                 value={count} 
                 onChange={(e) => { setCount(Math.max(1, e.target.value)) }} 
-                className="w-16 h-10 border rounded-lg text-center text-lg font-semibold text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                className="w-12 h-8 border rounded-lg text-center text-lg font-semibold text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
                 min="1"
             />
             <div className="text-xl font-bold text-gray-800">{props.data.price * count} Rs</div>

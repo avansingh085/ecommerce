@@ -3,7 +3,7 @@ import CustomerServiceBox from "./CustomerServiceBox.jsx";
 function CustomerService(){
 
 return(
-    <div className="min-h-screen w-screen bg-black flex flex-col items-center">
+    <div className="min-h-screen w-screen bg-white flex flex-col items-center">
     <div className="text-lg mx-10 mt-10 sm:text-xl h-16 w-full md:text-2xl text-center font-semibold text-gray-800">
       Hello! What can we help you with?
     </div>

@@ -14,7 +14,7 @@ function Ecommerce(){
      // localStorage.setItem('token',"abc");
      
 return(
-<div className="bg-black min-h-screen overflow-x-hidden " >
+<div className="bg-white min-h-screen overflow-x-hidden " >
 
       <Header/>
 <div className="mt-20">

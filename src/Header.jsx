@@ -44,23 +44,7 @@ function Header(){
   const [flag,setFlag]=useState(false);
   const value=useRef();
  
-   useEffect(()=>{
-        let slide=document.getElementById("slide");
-       let list=slide.classList;
-       
-       if(flag)
-       {
-       list.remove("w-0");
-       list.add("w-60");
-       
-       }
-       else{
-        list.remove("w-60");
-        list.add("w-0");
-       }
-       
-
-    },[flag]);
+   
   function handlerShowRec(e){
  
     let rec=document.getElementsByClassName("recomendation")[0];
@@ -173,15 +157,15 @@ function Header(){
     return(
        
       <div id="p" className="bg-gray-900 z-50">
-      <div className="z-40 fixed w-screen bg-gray-900 text-white flex items-center justify-evenly border-b-2 border-indigo-500">
+      <div className="z-40 fixed w-screen bg-white text-black flex items-center justify-evenly border-b-2 border-indigo-500">
         <Link to="/">
           <img 
             src="https://img.freepik.com/premium-vector/bag-shop-gradient-colorful-logo-vector-icon-illustration_269830-2269.jpg?w=740" 
-            className="h-14 w-20" 
+            className="md:h-14 md:w-20  w-14 h-10 shadow-2xl" 
             style={{ borderRadius: "100%" }} 
           />
         </Link>
-        <div className='md:w-96'>
+        <div className='sm:w-48 md:w-80 lg:w-96'>
           <div className="flex mt-4 h-12 w-full max-w-lg items-center rounded-3xl shadow-lg">
             <input 
               type="text" 
@@ -202,7 +186,7 @@ function Header(){
               />
             </button>
           </div>
-          <div name="search" type="text" id="search" className='mt-1 z-20 sticky h-1 md:w-96'>
+          <div name="search" type="text" id="search" className='mt-1 z-20 sticky h-1  lg:w-96'>
             <div className="bg-black h-0 text-black opacity-0 recomendation border-x-2 shadow-xl grid items-center justify-center transition-all" style={{ transitionDuration: "10000" }}>
               {Rec.map((d, key) => {
                 return (<RecomendationCom data={d} key={key} />);
@@ -210,18 +194,25 @@ function Header(){
             </div>
           </div>
         </div>
-        <Link to="/Products" className="text-sm hidden sm:text-md md:text-xl sm:block font-serif">Home</Link>
-        <Link to="/CustomerService" className="text-sm hidden sm:text-md md:text-xl sm:block font-serif">Customer Service</Link>
+        <Link to="/Products" className="text-sm hidden sm:text-sm xl:text-lg sm:block font-serif">Home</Link>
+        <Link to="/CustomerService" className="text-sm hidden sm:text-md xl:text-lg sm:block font-serif">Customer Service</Link>
         <Link to="/CartPage" className="hidden md:text-xl sm:block font-serif"><IoCartOutline className="w-10 h-10" /></Link>
         <Link to={isLogin ? "/MyAccount" : "/Login"} className="md:text-xl text-sm hidden sm:text-md sm:block font-serif">
-          {isLogin ? "My Account" : <button className="h-12 w-28 bg-indigo-700 rounded-xl">login</button>}
+          {isLogin ? "My Account" : <button className="h-8 w-14 md:h-10 md:w-20 lg:h-12 lg:w-28 bg-indigo-600 text-white rounded-xl">login</button>}
         </Link>
         <button className='sm:hidden' onClick={(e) => { setFlag(!flag) }}>
           <img src="https://img.icons8.com/?size=100&id=59832&format=png&color=000000" className='h-8 w-8' />
         </button>
       </div>
     
-      <div className="mt-0 w-0 absolute sm:hidden sm:w-0 h-screen transition-all duration-1000 border-r-2 border-r-slate-700 bg-gray-800 z-10" id="slide">
+      <div className={` absolute sm:hidden sm:w-0  transition-all duration-1000 border-r-2 py-20  border-r-slate-700  bg-white z-20 ${flag ? 'w-screen opacity-100 content-none h-screen grid items-center justify-center ' :'w-0 opacity-0 block h-0 rounded-br-full '}`} id="slide">
+      <Link to="/Products" className="text-sm  sm:text-sm xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  shadow-2xl duration-1000 ${flag ? 'h-14 w-48 opacity-100' :'h-0 w-0 opacity-0'} `}>Home</button></Link>
+      <Link to="/CustomerService" className="text-sm sm:text-md xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}>   <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Customer Service</button></Link>
+      <Link to="/CartPage" className=" md:text-xl sm:block font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Cart</button></Link>
+      <Link to={isLogin ? "/MyAccount" : "/Login"} className="md:text-xl text-sm hidden sm:text-md sm:block font-serif" onClick={()=>setFlag(!flag)}>
+          {isLogin ?  <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>My Account</button> :  <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>login</button>}
+        </Link>
+          <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>{isLogin ? "logout" : "login"}</button>
       </div>
     </div>
     )    
