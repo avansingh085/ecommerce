@@ -187,7 +187,7 @@ function Header(){
             </button>
           </div>
           <div name="search" type="text" id="search" className='mt-1 z-20 sticky h-1  lg:w-96'>
-            <div className="bg-black h-0 text-black opacity-0 recomendation border-x-2 shadow-xl grid items-center justify-center transition-all" style={{ transitionDuration: "10000" }}>
+            <div className="bg-white h-0 text-black opacity-0 recomendation border-x-2 shadow-xl grid items-center justify-center transition-all" style={{ transitionDuration: "10000" }}>
               {Rec.map((d, key) => {
                 return (<RecomendationCom data={d} key={key} />);
               })}
@@ -205,15 +205,14 @@ function Header(){
         </button>
       </div>
     
-      <div className={` absolute sm:hidden sm:w-0  transition-all duration-1000 border-r-2 py-20  border-r-slate-700  bg-white z-20 ${flag ? 'w-screen opacity-100 content-none h-screen grid items-center justify-center ' :'w-0 opacity-0 block h-0 rounded-br-full '}`} id="slide">
-      <Link to="/Products" className="text-sm  sm:text-sm xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  shadow-2xl duration-1000 ${flag ? 'h-14 w-48 opacity-100' :'h-0 w-0 opacity-0'} `}>Home</button></Link>
-      <Link to="/CustomerService" className="text-sm sm:text-md xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}>   <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Customer Service</button></Link>
-      <Link to="/CartPage" className=" md:text-xl sm:block font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Cart</button></Link>
-      <Link to={isLogin ? "/MyAccount" : "/Login"} className="md:text-xl text-sm hidden sm:text-md sm:block font-serif" onClick={()=>setFlag(!flag)}>
+      <div className={` absolute sm:hidden sm:w-0  transition-all duration-1000 border-r-2 py-20  border-r-slate-700  bg-violet-500 z-20 ${flag ? 'w-screen opacity-100 content-none h-screen grid items-center justify-center ' :'w-0 opacity-0 block h-0 rounded-br-full '}`} id="slide">
+      <Link to="/Products" className="text-sm bg-white rounded-lg sm:text-sm xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  shadow-2xl duration-1000 ${flag ? 'h-14 w-48 opacity-100' :'h-0 w-0 opacity-0'} `}>Home</button></Link>
+      <Link to="/CustomerService"  className="text-sm rounded-lg bg-white sm:text-md xl:text-lg sm:block font-serif" onClick={()=>setFlag(!flag)}>   <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Customer Service</button></Link>
+      <Link to="/CartPage" className="rounded-lg md:text-xl sm:block bg-white font-serif" onClick={()=>setFlag(!flag)}> <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>Cart</button></Link>
+      <Link to={isLogin ? "/MyAccount" : "/Login"} className="md:text-xl bg-white  rounded-lg text-sm  sm:text-md sm:block font-serif" onClick={()=>setFlag(!flag)}>
           {isLogin ?  <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>My Account</button> :  <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>login</button>}
         </Link>
-          <button className={` hover:bg-blue-500 rounded-lg transition-all  duration-1000 shadow-2xl ${flag ? 'h-14 w-48 opacity-100 ' :'h-0 w-0 opacity-0'} `}>{isLogin ? "logout" : "login"}</button>
-      </div>
+            </div>
     </div>
     )    
 }

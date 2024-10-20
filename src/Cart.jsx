@@ -1,13 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect ,useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem, removeItem, selectItem,updatePrice } from './globalSlice.jsx';
 import axios from 'axios';
 function Cart(props){
-    const [count,setCount]=useState(props.data.quantity);
-
+   
+   const [count,setCount]=useState(props.data.quantity);
+   console.log(count)
     const handleRemoveItem =async (e) => {
                try{
+                     
                         const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
                         if(res.success)
                         {
@@ -16,14 +18,36 @@ function Cart(props){
                         else{
 
                         }
-                        setCount(0);
+                        
                }
                catch(err)
                {
                  console.log("cart not remove somthing error ");
                }
       };
-      
+      async function update(){
+        const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/updateItemQuantity/?productId=${props.data._id}&username=${localStorage.getItem('username')}&quantity=${count}`);
+        console.log(res,"updateItemQuantity  res")
+          if(res.success)
+          {
+              
+          }
+          else{
+
+          }
+      }
+      useEffect(()=>{
+        try{
+          
+           update();
+    
+   }
+   catch(err)
+   {
+     console.log("cart not remove somthing error ");
+   }
+      },[count])
+     
     return(<>{count ? (
         <div className="w-full max-h-60 max-w-4xl mx-auto bg-white shadow-2xl my-6 flex items-center justify-between p-5 rounded-xl border border-blue-200 transition duration-300  transform ">
         <div className="flex items-center space-x-4">
@@ -43,12 +67,14 @@ function Cart(props){
         <div className="flex items-center space-x-4 ">
             <input 
                 type="number" 
-                value={count} 
-                onChange={(e) => { setCount(Math.max(1, e.target.value)) }} 
+               
+                value={count}
+                onChange={(e)=>{setCount(Math.max(1,e.target.value))}}
                 className="w-12 h-8 border rounded-lg text-center text-lg font-semibold text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
                 min="1"
             />
-            <div className="text-xl font-bold text-gray-800">{props.data.price * count} Rs</div>
+
+            <div className="text-xl font-bold text-gray-800" >{props.data.price } Rs</div>
             <button 
                 onClick={handleRemoveItem} 
                 className="flex items-center justify-center bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition duration-200"

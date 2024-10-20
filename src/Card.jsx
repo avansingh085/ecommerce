@@ -31,7 +31,7 @@ function Card(props){
     }
     return(
         <div
-        className="p-5 m-5 border border-gray-200 rounded-lg shadow-lg bg-gradient-to-r from-white to-[#F0F4F8] hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
+        className="p-5 m-5 border max-w-72  lg:w-auto border-gray-200 rounded-lg shadow-lg bg-gradient-to-r from-white to-[#F0F4F8] hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
         onClick={ExplorHandler}
       >
       

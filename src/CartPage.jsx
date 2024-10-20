@@ -96,7 +96,7 @@ function CartPage()
                             }),
                         })
                         .then(res => res.text())
-                        .then(result => alert(result))
+                        .then(result => {})
                         .catch(error => console.error('Error:', error));
                     },
                     prefill: {
@@ -124,7 +124,7 @@ function CartPage()
     }):<h1 className='text-gray-300 text-9xl font-serif '>NO ANY ITEMS</h1>
 }
 </div>
- { items.length>0 ? <div className="h-16 bg-gradient-to-r from-lime-400 to-lime-500 w-screen flex items-center justify-evenly shadow-lg">
+ { items.length>0 ? <div className="h-16  w-screen flex items-center justify-evenly shadow-lg">
     <button 
         onClick={handlePayment}  // Ensure you have a function defined for handling payment
         className="h-14 w-40 bg-purple-600 text-white font-bold rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-purple-700">

@@ -9,7 +9,7 @@ function RecomendationCom(props){
     console.log("NO_____________");
     return(
       <button 
-      className="w-52 md:w-72 shadow-md rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 text-white border-0 my-1 hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 transition-all duration-300 transform hover:scale-105" 
+      className="w-52 md:w-72 shadow-md rounded-lg  text-pink-400 border-0 my-1 hover:bg-gradient-to-r transition-all duration-300 transform hover:scale-105" 
       onClick={DispatchSearch}
     >
       {props.data.title}
