@@ -9,8 +9,9 @@ function Cart(props){
    console.log(count)
     const handleRemoveItem =async (e) => {
                try{
+                //"https://ecommerce-backend1-1.onrender.com"
                      
-                        const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
+                        const res=await axios.get(`http://localhost:5500/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
                         if(res.success)
                         {
 
@@ -26,15 +27,32 @@ function Cart(props){
                }
       };
       async function update(){
-        const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/updateItemQuantity/?productId=${props.data._id}&username=${localStorage.getItem('username')}&quantity=${count}`);
-        console.log(res,"updateItemQuantity  res")
-          if(res.success)
+        try{
+        let url=`http://localhost:5500/updateItemQuantity`;
+        const res=await fetch(url,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+               productId:props.data._id,
+               username:localStorage.getItem('username'),
+               quantity:count,
+            }),
+        });
+       let res1=await res.json();
+       console.log(res1);
+          if(res1.success)
           {
               
           }
           else{
 
           }
+        }catch(err){
+            console.log(err);
+        }
+          
       }
       useEffect(()=>{
         try{
