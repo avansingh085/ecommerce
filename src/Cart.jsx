@@ -11,7 +11,7 @@ function Cart(props){
                try{
                 //"https://ecommerce-backend1-1.onrender.com"
                      
-                        const res=await axios.get(`http://localhost:5500/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
+                        const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
                         if(res.success)
                         {
 
@@ -28,7 +28,7 @@ function Cart(props){
       };
       async function update(){
         try{
-        let url=`http://localhost:5500/updateItemQuantity`;
+        let url=`https://ecommerce-backend1-1.onrender.com/updateItemQuantity`;
         const res=await fetch(url,{
             method: 'POST',
             headers: {
