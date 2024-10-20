@@ -29,7 +29,7 @@ function Cart(props){
       async function update(){
         try{
         let url=`https://ecommerce-backend1-1.onrender.com/updateItemQuantity`;
-        const res=await fetch(url,{
+        const res=fetch(url,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
