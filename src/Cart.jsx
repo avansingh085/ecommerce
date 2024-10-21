@@ -5,16 +5,14 @@ import { addItem, removeItem, selectItem,updatePrice } from './globalSlice.jsx';
 import axios from 'axios';
 function Cart(props){
    
-   const [count,setCount]=useState(props.data.quantity);
-   console.log(count)
+    const [count,setCount]=useState(props.data.quantity);
+    
     const handleRemoveItem =async (e) => {
                try{
-                //"https://ecommerce-backend1-1.onrender.com"
-                     
                         const res=await axios.get(`https://ecommerce-backend1-1.onrender.com/removeCart?productId=${props.data._id}&username=${localStorage.getItem('username')}`);
                         if(res.success)
                         {
-
+                          
                         }
                         else{
 
@@ -41,7 +39,6 @@ function Cart(props){
             }),
         });
        let res1=await res.json();
-       console.log(res1);
           if(res1.success)
           {
               

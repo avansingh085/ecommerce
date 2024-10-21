@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+//Redis LC2pbq5JVbO26fSdS7vTiLekO0TyBHxI
 import { addItem, removeItem, selectItem,updatePrice,setCurrentClick } from './globalSlice.jsx';
 import Rating from './Rating.jsx';
 function Card(props){
-    const dispatch = useDispatch();
+    const dispatch=useDispatch();
     const navigate=useNavigate();
   async  function handleAddItem()
     {
-        localStorage.setItem('username','avansingh0854');
+       
       let res=await fetch("https://ecommerce-backend1-1.onrender.com/addCart",{
            method:"post",
            headers: {
@@ -31,17 +33,17 @@ function Card(props){
     }
     return(
         <div
-        className="p-5 m-5 border max-w-72  lg:w-auto border-gray-200 rounded-lg shadow-lg bg-gradient-to-r from-white to-[#F0F4F8] hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
-        onClick={ExplorHandler}
+        className="p-5 m-5 border max-w-72  lg:w-auto border-gray-200 rounded-lg shadow-lg bg-gradient-to-r from-white to-[#F0F4F8] hover:shadow-2xl transition-all duration-300 ease-in-out "
+       
       >
       
-        <div className="relative grid h-40 w-full bg-white overflow-hidden rounded-md shadow-md">
+        <div className="relative grid h-40 w-full bg-white overflow-hidden rounded-md shadow-md cursor-pointer"  onClick={ExplorHandler}>
           <img
             src={props.data.image}
             className="h-40 w-11/12 justify-self-center self-center transition-transform transform hover:scale-105"
             alt={props.data.title}
           />
-        </div>
+        </div >
       
      
         <div className="bg-blue-100 mt-4 p-4 rounded-lg shadow-inner relative z-10">
@@ -70,10 +72,8 @@ function Card(props){
           </div>
         </div>
       </div>
-      
-      
-      
-      
-    )
+    
+  );
+
 }
 export default Card;

@@ -2,6 +2,8 @@ import { useEffect, useState,useRef } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import {setLogin} from './globalSlice.jsx';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function Login()
 { 
    const navigate=useNavigate();
@@ -10,10 +12,8 @@ function Login()
    const [tog,setTog]=useState(0);
    const [message,setMessage]=useState("");
    const dispatch=useDispatch();
-   console.log("AVANANNNN");
+  
  async  function loginVeri(){
-   
-   
     try{
   let res=await fetch(`https://ecommerce-backend1-1.onrender.com/${tog ? "signup" : "login"}`, {
         method: 'POST',
@@ -27,6 +27,7 @@ function Login()
     console.log(res1);
     if(res1.success)
     {
+      toast("login successfully");
         localStorage.setItem('username',username.current.value)
         localStorage.setItem('token',res1.token);
         dispatch(setLogin(1));
@@ -34,11 +35,13 @@ function Login()
     }
     else
     {
+        toast("please enter valid detail");
         setMessage("please correct")
     }
 }
 catch(err)
 {
+  toast("something errror in backend");
     console.log(err);
 }
    
