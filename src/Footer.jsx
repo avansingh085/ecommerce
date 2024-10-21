@@ -1,15 +1,12 @@
 import ItemList from "./ItemList";
-
 function Footer() {
   return (
-    <footer class="bg-gray-900 text-gray-300 py-10">
+    <footer class="bg-gray-900 text-gray-300 bottom-0">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-      
         <div>
             <h3 class="text-lg font-semibold text-white mb-4">About Us</h3>
             <p class="text-sm">We are a leading company dedicated to providing high-quality services and innovative solutions to meet our clients' needs.</p>
         </div>
-
         <div>
             <h3 class="text-lg font-semibold text-white mb-4">Contact Information</h3>
             <ul class="text-sm space-y-2">

@@ -2,12 +2,13 @@ import { useEffect, useState,useRef } from 'react';
 import Cart from './Cart.jsx';
 import { useSelector } from "react-redux";
 import axios from 'axios';
-
+import { ColorRing } from "react-loader-spinner";
 function CartPage()
 {
    
     const [items,setItem]=useState([]);
      const [prices,setPrice]=useState(0);
+     const [isFetch,setFetch]=useState(0);
  let curr={};
     async function loadCartItem(){
         let data=await fetch(`https://ecommerce-backend1-1.onrender.com/sendCart?username=${localStorage.getItem('username')}`);
@@ -29,6 +30,7 @@ function CartPage()
          }
          setPrice(p);
         setItem(r);
+        setFetch(1);
     })
     .catch(error => {
         console.error('One of the requests failed:', error);
@@ -118,10 +120,18 @@ function CartPage()
         <div>
 <div className='w-screen grid bg-black-50 align-top px-14 justify-center min-h-screen'>
      
-   {items.length>0 ? items.map((data,key)=>{ 
+   {!isFetch ? <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          /> :(items.length>0 ? items.map((data,key)=>{ 
 //    totalPrice+=((data.price)*(data.quantity));
     return(<Cart data={data}/>)
-    }):<h1 className='text-gray-300 text-9xl font-serif '>NO ANY ITEMS</h1>
+    }):<h1 className='text-gray-300 text-9xl font-serif '>NO ANY ITEMS</h1>)
 }
 </div>
  { items.length>0 ? <div className="h-16  w-screen flex items-center justify-evenly shadow-lg">
