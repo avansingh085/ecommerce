@@ -177,6 +177,7 @@ function Header(){
               placeholder="Search for anything..."  
               value={searchVal}  
             />
+            
             <button 
               className="h-full w-12 flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-r-3xl transition-all duration-300">
               <img 
@@ -187,7 +188,7 @@ function Header(){
             </button>
           </div>
           <div name="search" type="text" id="search" className='mt-1 z-20 sticky h-1  lg:w-96'>
-            <div className="bg-white h-0 text-black opacity-0 recomendation border-x-2 shadow-xl grid items-center justify-center transition-all" style={{ transitionDuration: "10000" }}>
+            <div className="bg-white h-0  text-black opacity-0 recomendation border-x-2 shadow-xl grid items-center justify-center transition-all" style={{ transitionDuration: "10000" }}>
               {Rec.map((d, key) => {
                 return (<RecomendationCom data={d} key={key} />);
               })}

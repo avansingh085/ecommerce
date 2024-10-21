@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import AddressSection from './AddressSection.jsx';
-import { useDispatch } from "react-redux";
+
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { setLogin } from './globalSlice.jsx';
 import AddressForm from "./AddressForm.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Account(){
    const [isVisible,setVisible]=useState(false);
    const [address,setAddress]=useState([]);
+   const dispatch=useDispatch();
    const [img,setImg]=useState(0);
     function setUpdateAddress(){
       setVisible(!isVisible)
@@ -22,7 +27,7 @@ function Account(){
         let res=await axios.get(`https://ecommerce-backend1-1.onrender.com/getaddress/?username=${localStorage.getItem('username')}`);
          setAddress(res.data);
          console.log(res.data)
-    }
+        }
         catch(err)
         {
             console.log("getaddress not fetch",err);
@@ -35,6 +40,8 @@ function Account(){
 
         localStorage.setItem('token','');
         localStorage.setItm('username','');
+        toast("you have logout!")
+        dispatch(setLogin(0))
     
     }
     return(

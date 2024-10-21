@@ -45,12 +45,12 @@ function ProductExplor()
         
         <div className="flex space-x-2">
           <button 
-            className="bg-rose-500 hover:bg-orange-400 text-white font-medium rounded-md w-40 h-14 transition-transform transform hover:scale-95 shadow-lg"
+            className="bg-rose-500  hover:bg-orange-400 text-white font-medium rounded-md w-32 sm:w-40 h-14 transition-transform transform hover:scale-95 shadow-lg"
             onClick={addCart}>
             Add to Cart
           </button>
           <button 
-            className="bg-green-500 hover:bg-pink-500 text-white font-medium rounded-md w-40 h-14 transition-transform transform hover:scale-95 shadow-lg"
+            className="bg-green-500 hover:bg-pink-500 text-white font-medium rounded-md w-32 sm:w-40 h-14 transition-transform transform hover:scale-95 shadow-lg"
             onClick={() => { /* Buy Now action */ }}>
             Buy Now
           </button>
