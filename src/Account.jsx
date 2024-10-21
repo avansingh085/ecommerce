@@ -38,10 +38,10 @@ function Account(){
     
     }
     return(
-        <div className="flex min-h-screen bg-gray-100">
+        <div className="flex min-h-screen bg-gray-100 -my-2">
     {/* Sidebar */}
     <div className="w-64 bg-blue-900 text-white flex flex-col justify-between p-6 shadow-lg">
-        <div className="space-y-4">
+        <div className="">
             <h2 className="text-2xl font-bold text-white">Account</h2>
             <nav className="flex flex-col space-y-3">
                 <a href="#account-details" className="hover:bg-blue-700 p-2 rounded-md">Account Details</a>
