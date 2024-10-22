@@ -87,7 +87,7 @@ function Account(){
             <div className="space-y-4 grid">
             {
                         address.map((data,key)=>{
-                            return <AddressSection data={data} />
+                            return <AddressSection data={data} key={key} />
                         })
             }
                 

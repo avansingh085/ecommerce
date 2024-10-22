@@ -65,18 +65,18 @@ function CartPage()
     
        function handlePayment() {
     
-                 fetch('https://ecommerce-backend1-1.onrender.com/createOrder', {
+                 fetch('http://localhost:5500/createOrder', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        amount:price, // amount in INR
+                        amount:parseInt(prices), // amount in INR
                         currency: 'INR',
                         receipt: 'receipt_1',
                     }),
                 }).then((responce)=>responce.json()).then((order)=>{
-                
+                  
                 let key_id="rzp_test_099LgMWWQ1DioF";
                 const options = {
                     key: key_id, // Replace with your Razorpay key ID
@@ -86,7 +86,7 @@ function CartPage()
                     description: 'Test Transaction',
                     order_id: order.id,
                     handler: function (response) {
-                        fetch('https://ecommerce-backend1-1.onrender.com/verifyPayment', {
+                        fetch('http://localhost:5500/verifyPayment', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -102,9 +102,9 @@ function CartPage()
                         .catch(error => console.error('Error:', error));
                     },
                     prefill: {
-                        name: 'Test User',
+                        name: localStorage.getItem('username'),
                         email: 'test.user@example.com',
-                        contact: '9999999999'
+                        contact: '9305275866'
                     },
                     theme: {
                         color: '#F37254'
