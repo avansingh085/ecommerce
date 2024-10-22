@@ -21,10 +21,11 @@ function Account(){
    setImgUrl(e.target.value);
    localStorage.setItem('imgUrl',imgUrl);
     }
+    //https://ecommerce-backend1-1.onrender.com
     async function getAddress()
     {
         try{
-        let res=await axios.get(`https://ecommerce-backend1-1.onrender.com/getaddress/?username=${localStorage.getItem('username')}`);
+        let res=await axios.get(`http://localhost:5500/getaddress/?username=${localStorage.getItem('username')}`);
          setAddress(res.data);
          console.log(res.data)
         }

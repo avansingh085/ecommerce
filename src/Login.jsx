@@ -16,7 +16,7 @@ function Login() {
 
   async function loginVeri() {
     try {
-      let res = await fetch(`https://ecommerce-backend1-1.onrender.com/${tog ? "signup" : "login"}`, {
+      let res = await fetch(`http://localhost:5500/${tog ? "signup" : "login"}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
