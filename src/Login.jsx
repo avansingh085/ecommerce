@@ -16,7 +16,7 @@ function Login() {
 
   async function loginVeri() {
     try {
-      let res = await fetch(`http://localhost:5500/${tog ? "signup" : "login"}`, {
+      let res = await fetch(`https://ecommerce-backend1-1.onrender.com/${tog ? "signup" : "login"}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,6 +29,13 @@ function Login() {
         toast("Login successfully");
         localStorage.setItem('username', username.current.value);
         localStorage.setItem('token', res1.token);
+        let res2 = await fetch(`https://ecommerce-backend1-1.onrender.com/sendNotification`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ useremail: username.current.value,subject:"Online Shop",message:"thanks for visiting our online shoping any query you can ask " }),
+        });
         dispatch(setLogin(1));
         navigate("/");
       } else {

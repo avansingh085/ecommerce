@@ -118,7 +118,7 @@ function CartPage()
        
     return(
         <div>
-<div className='w-screen grid bg-black-50 align-top px-14 justify-center min-h-screen'>
+<div className={`w-screen grid bg-black-50 ${!isFetch ? "items-center" :"align-top px-14"} justify-center min-h-screen`}>
      
    {!isFetch ? <ColorRing
             visible={true}
@@ -141,7 +141,7 @@ function CartPage()
         Payment Now
     </button>
     <div className="text-lg font-semibold text-gray-800">
-        Total Price: {prices}
+        Total Price: {parseInt(prices)}
     </div>
 </div>
 

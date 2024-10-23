@@ -46,7 +46,7 @@ function Account(){
     
     }
     return(
-        <div className="flex min-h-screen bg-gray-100 -my-2">
+        <div className="flex min-h-screen bg-gray-100 -my-2 ">
     {/* Sidebar */}
     <div className="w-64 bg-blue-900 text-white flex flex-col justify-between p-6 shadow-lg">
         <div className="">
