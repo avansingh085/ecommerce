@@ -156,8 +156,8 @@ function Header(){
  
     return(
        
-      <div id="p" className="bg-gray-900 z-50">
-      <div className="z-40 fixed w-screen bg-white text-black flex items-center justify-evenly border-b-2 border-indigo-500">
+      <div id="p" className=" z-50">
+      <div className="z-40 fixed w-screen bg-transparent text-black flex items-center justify-evenly border-b-2 border-indigo-500">
         <Link to="/">
           <img 
             src="https://img.freepik.com/premium-vector/bag-shop-gradient-colorful-logo-vector-icon-illustration_269830-2269.jpg?w=740" 
@@ -169,7 +169,7 @@ function Header(){
           <div className="flex mt-4 h-12 w-full max-w-lg items-center rounded-3xl shadow-lg">
             <input 
               type="text" 
-              className="h-full w-4/5 md:w-80 px-5 rounded-l-3xl bg-gray-800 text-gray-300 placeholder-gray-500 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 text-lg font-medium" 
+              className="h-full w-4/5 md:w-80 px-5 rounded-l-3xl  text-gray-300 placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 text-lg font-medium" 
               onKeyDown={handlerSearch} 
               onChange={handlerShowRec} 
               ref={value} 
