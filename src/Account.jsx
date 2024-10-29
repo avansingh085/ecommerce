@@ -122,7 +122,6 @@ function Account() {
                     <p className="text-gray-600">Customize your account settings here.</p>
                 </div>
             </div>
-
             {/* Toast Notifications */}
             <ToastContainer position="bottom-right" autoClose={3000} />
         </div>
