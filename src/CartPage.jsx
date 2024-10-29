@@ -71,7 +71,7 @@ function CartPage()
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        amount:parseInt(prices), // amount in INR
+                        amount:parseInt(prices),
                         currency: 'INR',
                         receipt: 'receipt_1',
                     }),
