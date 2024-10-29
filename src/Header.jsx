@@ -165,11 +165,11 @@ function Header(){
             style={{ borderRadius: "100%" }} 
           />
         </Link>
-        <div className='sm:w-48 md:w-80 lg:w-96'>
-          <div className="flex mt-4 h-12 w-full max-w-lg items-center rounded-3xl shadow-lg">
+        <div className='w-48  md:w-80 lg:w-96'>
+          <div className="flex mt-4 h-12   items-center rounded-3xl shadow-lg">
             <input 
               type="text" 
-              className="h-full w-4/5 md:w-80 px-5 rounded-l-3xl  text-gray-300 placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 text-lg font-medium" 
+              className="h-full w-36  md:w-72 lg:w-80 px-5 rounded-l-3xl  text-gray-300 placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 text-lg font-medium" 
               onKeyDown={handlerSearch} 
               onChange={handlerShowRec} 
               ref={value} 
@@ -179,11 +179,11 @@ function Header(){
             />
             
             <button 
-              className="h-full w-12 flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-r-3xl transition-all duration-300">
+              className="h-full w-12 md:w-16 flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-r-3xl transition-all duration-300">
               <img 
                 src="https://img.icons8.com/?size=100&id=132&format=png&color=ffffff" 
                 alt="search icon" 
-                className="h-6 w-6" 
+                className="h-6 w-6 p-0 m-0" 
               />
             </button>
           </div>

@@ -1,7 +1,7 @@
 import ItemList from "./ItemList";
 function Footer() {
   return (
-    <footer class="bg-gray-900 text-gray-300 ">
+    <footer class="bg-gray-900 text-gray-300 pb-0 ">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
             <h3 class="text-lg font-semibold text-white mb-4">About Us</h3>
