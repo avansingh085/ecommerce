@@ -1,4 +1,4 @@
-import { useEffect, useState,useRef } from 'react';
+import { useEffect, useState,useRef ,useMemo} from 'react';
 import Cart from './Cart.jsx';
 import { useSelector } from "react-redux";
 import axios from 'axios';
@@ -17,7 +17,7 @@ function CartPage()
         
         // setPrice(curr.totalPrice)
         //setCart(curr);
-        Promise.all(curr.map(url => fetch(`https://ecommerce-backend1-1.onrender.com/sendData?productId=${url.productId}`)))
+        Promise.all(curr.map((url) => useMemo(()=>fetch(`https://ecommerce-backend1-1.onrender.com/sendData?productId=${url.productId}`),[url.productId])))
         .then(responses => Promise.all(responses.map(response => response.json())))
         .then(data => {
         let r=[];
@@ -129,14 +129,14 @@ function CartPage()
             wrapperClass="blocks-wrapper"
             colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
           /> :(items.length>0 ? items.map((data,key)=>{ 
-//    totalPrice+=((data.price)*(data.quantity));
+
     return(<Cart data={data}/>)
     }):<h1 className='text-gray-300 text-9xl font-serif '>NO ANY ITEMS</h1>)
 }
 </div>
  { items.length>0 ? <div className="h-16  w-screen flex items-center justify-evenly shadow-lg">
     <button 
-        onClick={handlePayment}  // Ensure you have a function defined for handling payment
+        onClick={handlePayment}  
         className="h-14 w-40 bg-purple-600 text-white font-bold rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-purple-700">
         Payment Now
     </button>
