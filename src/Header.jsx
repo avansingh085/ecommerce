@@ -16,7 +16,7 @@ function Header(){
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get('https://fakeapidata.com/products?page=1&limit=400');
+        const { data } = await axios.get('https://ecommerce-backend1-1.onrender.com/products');
         dispatch(UpdateFilData(data));
       } catch (err) {
         console.error('Error fetching data:', err);
