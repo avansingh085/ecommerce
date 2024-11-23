@@ -15,7 +15,7 @@ const AddressForm = () => {
     setAddress({ ...address, [name]: value });
   };
   async function savehandler(){
-    fetch('https://ecommerce-backend1-1.onrender.com/updateAddress', {
+    fetch('http://localhost:5500/updateAddress', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

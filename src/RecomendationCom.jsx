@@ -7,7 +7,7 @@ function RecomendationCom(props){
       dispatch(setSearch(props.data.title));
     }
     console.log("NO_____________");
-    return(
+    return(+
       <button 
       className="w-52 md:w-72 shadow-md rounded-lg  text-pink-400 border-0 my-1 hover:bg-gradient-to-r transition-all duration-300 transform hover:scale-105" 
       onClick={DispatchSearch}

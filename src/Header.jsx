@@ -17,11 +17,7 @@ function Header(){
     const fetchData = async () => {
       try {
         const { data } = await axios.get('https://ecommerce-backend1-1.onrender.com/products');
-<<<<<<< HEAD
         dispatch(UpdateFilData(data.data));
-=======
-        dispatch(UpdateFilData(data));
->>>>>>> 46a0a7a9729338b299f54cced9806c3bc3e7d464
       } catch (err) {
         console.error('Error fetching data:', err);
       }
