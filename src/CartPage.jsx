@@ -21,12 +21,12 @@ function CartPage() {
   const loadCartItem = async () => {
     try {
       const username = localStorage.getItem("username");
-      const res = await fetch(`http://localhost:5500/sendCart?username=${username}`);
+      const res = await fetch(`https://ecommerce-backend1-1.onrender.com/sendCart?username=${username}`);
       const cartData = await res.json();
       const currItems = cartData.items;
 
       const productRequests = currItems.map((item) =>
-        fetch(`http://localhost:5500/sendData?productId=${item.productId}`)
+        fetch(`https://ecommerce-backend1-1.onrender.com/sendData?productId=${item.productId}`)
       );
 
       const productResponses = await Promise.all(productRequests);
@@ -56,7 +56,7 @@ function CartPage() {
 
   const handlePayment = async () => {
     try {
-      const response = await fetch("http://localhost:5500/createOrder", {
+      const response = await fetch("https://ecommerce-backend1-1.onrender.com/createOrder", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -76,7 +76,7 @@ function CartPage() {
         order_id: order.id,
         handler: async (response) => {
           try {
-            await fetch("http://localhost:5500/verifyPayment", {
+            await fetch("https://ecommerce-backend1-1.onrender.com/verifyPayment", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
