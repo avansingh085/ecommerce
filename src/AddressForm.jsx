@@ -41,10 +41,10 @@ const AddressForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-md p-4 max-w-sm w-full"
+        className="bg-white shadow-md rounded-md p-6 w-full sm:max-w-md lg:max-w-lg xl:max-w-xl"
       >
         <h2 className="text-lg font-semibold text-center text-gray-800 mb-4">
           Address Form
@@ -52,7 +52,10 @@ const AddressForm = () => {
 
         {/* Name Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="name">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -69,7 +72,10 @@ const AddressForm = () => {
 
         {/* Mobile Number Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="mobile">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="mobile"
+          >
             Mobile Number
           </label>
           <input
@@ -86,7 +92,10 @@ const AddressForm = () => {
 
         {/* Street Address Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="street">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="street"
+          >
             Street Address
           </label>
           <input
@@ -103,7 +112,10 @@ const AddressForm = () => {
 
         {/* City Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="city">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="city"
+          >
             City
           </label>
           <input
@@ -120,7 +132,10 @@ const AddressForm = () => {
 
         {/* State Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="state">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="state"
+          >
             State
           </label>
           <input
@@ -137,7 +152,10 @@ const AddressForm = () => {
 
         {/* Zip Code Field */}
         <div className="mb-3">
-          <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="zip">
+          <label
+            className="block text-sm text-gray-700 font-medium mb-1"
+            htmlFor="zip"
+          >
             Zip Code
           </label>
           <input
